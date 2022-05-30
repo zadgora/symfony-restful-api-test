@@ -1,0 +1,63 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+user_login:
+    path: /api/v1/users/login
+
+projects:
+    path: /api/v1/projects
+    controller: App\Controller\Api\V1\ProjectController::list
+    methods: [GET,HEAD]
+
+projects_read:
+    path: /api/v1/projects/{pid}
+    controller: App\Controller\Api\V1\ProjectController::read
+    methods: [GET]
+
+projects_create:
+    path: /api/v1/projects
+    controller: App\Controller\Api\V1\ProjectController::create
+    methods: [POST]
+
+projects_update:
+    path: /api/v1/projects/{pid}
+    controller: App\Controller\Api\V1\ProjectController::update
+    methods: [PUT,PATCH]
+
+projects_delete:
+    path: /api/v1/projects/{pid}
+    controller: App\Controller\Api\V1\ProjectController::delete
+    methods: [DELETE]
+
+
+
+projects_tasks:
+    path: /api/v1/projects/{pid}/tasks
+    controller: App\Controller\Api\V1\TaskController::list
+    methods: [GET,HEAD]
+
+tasks_create:
+    path: /api/v1/projects/{pid}/tasks
+    controller: App\Controller\Api\V1\TaskController::create
+    methods: [POST]
+
+tasks_read:
+    path: /api/v1/projects/{pid}/tasks/{tid}
+    controller: App\Controller\Api\V1\TaskController::read
+    methods: [GET]
+
+tasks_update:
+    path: /api/v1/projects/{pid}/tasks/{tid}
+    controller: App\Controller\Api\V1\TaskController::update
+    methods: [PUT,PATCH]
+
+tasks_delete:
+    path: /api/v1/projects/{pid}/tasks/{tid}
+    controller: App\Controller\Api\V1\TaskController::delete
+    methods: [DELETE]
+
+fallback_route:
+  path: /{req}
+  defaults: { _controller: App\Controller\Api\V1\DefaultController::fallback }
+  requirements:
+    req: .*

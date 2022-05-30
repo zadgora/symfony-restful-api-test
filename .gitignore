@@ -1,0 +1,12 @@
+.env
+/var/
+/vendor/
+/config/jwt/
+
+
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+
+
+
